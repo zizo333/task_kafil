@@ -59,7 +59,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FieldTitle(
-      title: title!,
+      title: title,
       child: TextFormField(
         cursorColor: Colors.black,
         controller: controller,
@@ -79,9 +79,11 @@ class CustomTextField extends StatelessWidget {
         textAlign: textAlign,
         decoration: InputDecoration(
           hintText: hintText,
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 22.w,
-            vertical: 20.h,
+          contentPadding: EdgeInsets.only(
+            left: 22.w,
+            right: 19.w,
+            top: 20.h,
+            bottom: 20.h,
           ),
           alignLabelWithHint: true,
           errorStyle: TextStyles.font12Medium(context.colorScheme.error),

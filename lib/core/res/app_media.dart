@@ -20,4 +20,9 @@ class AppSvgs {
   static const userImage = '$_svgsPath/userImage.svg';
   static const decrement = '$_svgsPath/decrement.svg';
   static const increment = '$_svgsPath/increment.svg';
+  static const calendar = '$_svgsPath/calendar.svg';
+  static const linkedin = '$_svgsPath/linkedin.svg';
+  static const facebook = '$_svgsPath/facebook.svg';
+  static const twitter = '$_svgsPath/twitter.svg';
+  static const close = '$_svgsPath/close.svg';
 }

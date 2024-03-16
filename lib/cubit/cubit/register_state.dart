@@ -11,5 +11,8 @@ class RegisterState with _$RegisterState {
     @Default(null) DateTime? birthDate,
     @Default(Gender.male) Gender gender,
     @Default(true) bool isFirstForm,
+    @Default([SocialMedia.facebook, SocialMedia.twitter])
+    List<SocialMedia> socialMedia,
+    @Default([]) List<String> skills,
   }) = _RegisterState;
 }

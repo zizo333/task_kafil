@@ -24,6 +24,8 @@ mixin _$RegisterState {
   DateTime? get birthDate => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
   bool get isFirstForm => throw _privateConstructorUsedError;
+  List<SocialMedia> get socialMedia => throw _privateConstructorUsedError;
+  List<String> get skills => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterStateCopyWith<RegisterState> get copyWith =>
@@ -44,7 +46,9 @@ abstract class $RegisterStateCopyWith<$Res> {
       File? userImage,
       DateTime? birthDate,
       Gender gender,
-      bool isFirstForm});
+      bool isFirstForm,
+      List<SocialMedia> socialMedia,
+      List<String> skills});
 }
 
 /// @nodoc
@@ -68,6 +72,8 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
     Object? birthDate = freezed,
     Object? gender = null,
     Object? isFirstForm = null,
+    Object? socialMedia = null,
+    Object? skills = null,
   }) {
     return _then(_value.copyWith(
       submitState: null == submitState
@@ -102,6 +108,14 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
           ? _value.isFirstForm
           : isFirstForm // ignore: cast_nullable_to_non_nullable
               as bool,
+      socialMedia: null == socialMedia
+          ? _value.socialMedia
+          : socialMedia // ignore: cast_nullable_to_non_nullable
+              as List<SocialMedia>,
+      skills: null == skills
+          ? _value.skills
+          : skills // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -122,7 +136,9 @@ abstract class _$$RegisterStateImplCopyWith<$Res>
       File? userImage,
       DateTime? birthDate,
       Gender gender,
-      bool isFirstForm});
+      bool isFirstForm,
+      List<SocialMedia> socialMedia,
+      List<String> skills});
 }
 
 /// @nodoc
@@ -144,6 +160,8 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
     Object? birthDate = freezed,
     Object? gender = null,
     Object? isFirstForm = null,
+    Object? socialMedia = null,
+    Object? skills = null,
   }) {
     return _then(_$RegisterStateImpl(
       submitState: null == submitState
@@ -178,6 +196,14 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
           ? _value.isFirstForm
           : isFirstForm // ignore: cast_nullable_to_non_nullable
               as bool,
+      socialMedia: null == socialMedia
+          ? _value._socialMedia
+          : socialMedia // ignore: cast_nullable_to_non_nullable
+              as List<SocialMedia>,
+      skills: null == skills
+          ? _value._skills
+          : skills // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -193,7 +219,14 @@ class _$RegisterStateImpl implements _RegisterState {
       this.userImage = null,
       this.birthDate = null,
       this.gender = Gender.male,
-      this.isFirstForm = true});
+      this.isFirstForm = true,
+      final List<SocialMedia> socialMedia = const [
+        SocialMedia.facebook,
+        SocialMedia.twitter
+      ],
+      final List<String> skills = const []})
+      : _socialMedia = socialMedia,
+        _skills = skills;
 
   @override
   @JsonKey()
@@ -219,10 +252,27 @@ class _$RegisterStateImpl implements _RegisterState {
   @override
   @JsonKey()
   final bool isFirstForm;
+  final List<SocialMedia> _socialMedia;
+  @override
+  @JsonKey()
+  List<SocialMedia> get socialMedia {
+    if (_socialMedia is EqualUnmodifiableListView) return _socialMedia;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_socialMedia);
+  }
+
+  final List<String> _skills;
+  @override
+  @JsonKey()
+  List<String> get skills {
+    if (_skills is EqualUnmodifiableListView) return _skills;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_skills);
+  }
 
   @override
   String toString() {
-    return 'RegisterState(submitState: $submitState, message: $message, autovalidateMode: $autovalidateMode, userType: $userType, userImage: $userImage, birthDate: $birthDate, gender: $gender, isFirstForm: $isFirstForm)';
+    return 'RegisterState(submitState: $submitState, message: $message, autovalidateMode: $autovalidateMode, userType: $userType, userImage: $userImage, birthDate: $birthDate, gender: $gender, isFirstForm: $isFirstForm, socialMedia: $socialMedia, skills: $skills)';
   }
 
   @override
@@ -243,12 +293,25 @@ class _$RegisterStateImpl implements _RegisterState {
                 other.birthDate == birthDate) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.isFirstForm, isFirstForm) ||
-                other.isFirstForm == isFirstForm));
+                other.isFirstForm == isFirstForm) &&
+            const DeepCollectionEquality()
+                .equals(other._socialMedia, _socialMedia) &&
+            const DeepCollectionEquality().equals(other._skills, _skills));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, submitState, message,
-      autovalidateMode, userType, userImage, birthDate, gender, isFirstForm);
+  int get hashCode => Object.hash(
+      runtimeType,
+      submitState,
+      message,
+      autovalidateMode,
+      userType,
+      userImage,
+      birthDate,
+      gender,
+      isFirstForm,
+      const DeepCollectionEquality().hash(_socialMedia),
+      const DeepCollectionEquality().hash(_skills));
 
   @JsonKey(ignore: true)
   @override
@@ -266,7 +329,9 @@ abstract class _RegisterState implements RegisterState {
       final File? userImage,
       final DateTime? birthDate,
       final Gender gender,
-      final bool isFirstForm}) = _$RegisterStateImpl;
+      final bool isFirstForm,
+      final List<SocialMedia> socialMedia,
+      final List<String> skills}) = _$RegisterStateImpl;
 
   @override
   RequestState get submitState;
@@ -284,6 +349,10 @@ abstract class _RegisterState implements RegisterState {
   Gender get gender;
   @override
   bool get isFirstForm;
+  @override
+  List<SocialMedia> get socialMedia;
+  @override
+  List<String> get skills;
   @override
   @JsonKey(ignore: true)
   _$$RegisterStateImplCopyWith<_$RegisterStateImpl> get copyWith =>

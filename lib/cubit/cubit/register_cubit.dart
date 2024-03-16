@@ -26,12 +26,38 @@ class RegisterCubit extends Cubit<RegisterState> {
   final aboutNode = FocusNode();
   final salaryController =
       TextEditingController(text: '${AppStrings.sar} 1000');
+  final birthDateController = TextEditingController();
   final salaryNode = FocusNode();
   final formKey = GlobalKey<FormState>();
 
   void changeUserImage(File userImage) {
     emit(state.copyWith(userImage: userImage));
   }
+
+  void selectGender(Gender gender) {
+    emit(state.copyWith(gender: gender));
+  }
+
+  void addSkill(String skill) {
+    emit(state.copyWith(skills: [...state.skills, skill]));
+  }
+
+  void deleteSkill(String skill) {
+    emit(state.copyWith(skills: [...state.skills]..remove(skill)));
+  }
+
+  void selectSocialMedia(SocialMedia socialMedia) {
+    final sMedia = [...state.socialMedia];
+    if (sMedia.contains(socialMedia)) {
+      sMedia.remove(socialMedia);
+    } else {
+      sMedia.add(socialMedia);
+    }
+    emit(state.copyWith(socialMedia: sMedia));
+  }
+
+  bool isSelected(SocialMedia socialMedia) =>
+      state.socialMedia.contains(socialMedia);
 
   @override
   Future<void> close() {

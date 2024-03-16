@@ -22,9 +22,11 @@ class AppStrings {
   static const male = 'Male';
   static const female = 'Female';
   static const skills = 'Skills';
+  static const enterYourSkill = 'Enter your skill';
   static const videoProduction = 'Video Production';
   static const favouriteSocialMedia = 'Favourite Social Media';
-  static const submit = 'Favourite Social Media';
+  static const submit = 'Submit';
+  static const confirm = 'Confirm';
   static const facebook = 'Facebook';
   static const twitter = 'Twitter';
   static const linkedIn = 'LinkedIn';

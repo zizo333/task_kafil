@@ -15,7 +15,7 @@ class FieldTitle extends StatelessWidget {
     super.key,
   });
 
-  final String title;
+  final String? title;
   final Widget? child;
   final Color? color;
   final FontWeight? fontWeight;
@@ -24,25 +24,27 @@ class FieldTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          title,
-          style: TStyle(
-            fontSize: fontSize ?? 12.sp,
-            color: color ?? AppColors.gray500,
-            fontWeight: fontWeight ?? FontWeightHelper.medium,
-          ),
-        ),
-        if (child != null) ...[
-          SizedBox(
-            height: inset ?? 8.h,
-          ),
-          child!,
-        ],
-      ],
-    );
+    return title == null && child != null
+        ? child!
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                title!,
+                style: TStyle(
+                  fontSize: fontSize ?? 12.sp,
+                  color: color ?? AppColors.gray500,
+                  fontWeight: fontWeight ?? FontWeightHelper.medium,
+                ),
+              ),
+              if (child != null) ...[
+                SizedBox(
+                  height: inset ?? 8.h,
+                ),
+                child!,
+              ],
+            ],
+          );
   }
 }

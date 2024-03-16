@@ -1,34 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:task/core/extensions/context_extension.dart';
-import 'package:task/core/res/app_media.dart';
+import 'package:task/core/helpers/app_functions.dart';
 import 'package:task/core/res/app_strings.dart';
 import 'package:task/cubit/cubit/register_cubit.dart';
 import 'package:task/ui/widgets/custom_text_feild.dart';
 
-class SalaryField extends StatelessWidget {
+class SalaryField extends StatefulWidget {
   const SalaryField({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final registerCubit = context.read<RegisterCubit>();
+  State<SalaryField> createState() => _SalaryFieldState();
+}
 
+class _SalaryFieldState extends State<SalaryField> {
+  late final RegisterCubit _registerCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _registerCubit = context.read<RegisterCubit>();
+
+    _registerCubit.salaryNode.addListener(_salaryListener);
+  }
+
+  @override
+  void dispose() {
+    _registerCubit.salaryNode.removeListener(_salaryListener);
+    super.dispose();
+  }
+
+  void _salaryListener() {
+    var salary = _registerCubit.salaryController.text;
+    if (_registerCubit.salaryNode.hasFocus) {
+      salary = salary.substring(4);
+      _registerCubit.salaryController.text = salary;
+      _registerCubit.salaryController.selection = TextSelection(
+        baseOffset: 0,
+        extentOffset: salary.length,
+      );
+    } else {
+      _registerCubit.salaryController.text =
+          '${salary.startsWith(AppStrings.sar) ? '' : '${AppStrings.sar} '}${salary.isEmpty || (num.tryParse(salary) ?? 0) < 0 ? 0 : salary}';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return CustomTextField(
       title: AppStrings.salary,
-      controller: registerCubit.salaryController,
-      focusNode: registerCubit.salaryNode,
-      nextNode: registerCubit.passwordNode,
+      controller: _registerCubit.salaryController,
+      focusNode: _registerCubit.salaryNode,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.number,
-      prefixIcon: Container(
+      prefixIcon: Padding(
         padding: EdgeInsets.only(left: 35.w),
         child: IconButton(
           onPressed: () {
-            final salary = _getCurrentSalary(registerCubit.salaryController);
-            if (salary != null) {
-              registerCubit.salaryController.text =
+            final salary = _getCurrentSalary();
+            if (salary != null && salary > 0) {
+              _registerCubit.salaryController.text =
                   '${AppStrings.sar} ${salary - 1}';
             }
           },
@@ -37,13 +69,13 @@ class SalaryField extends StatelessWidget {
           ),
         ),
       ),
-      suffixIcon: Container(
+      suffixIcon: Padding(
         padding: EdgeInsets.only(right: 35.w),
         child: IconButton(
           onPressed: () {
-            final salary = _getCurrentSalary(registerCubit.salaryController);
+            final salary = _getCurrentSalary();
             if (salary != null) {
-              registerCubit.salaryController.text =
+              _registerCubit.salaryController.text =
                   '${AppStrings.sar} ${salary + 1}';
             }
           },
@@ -55,15 +87,13 @@ class SalaryField extends StatelessWidget {
     );
   }
 
-  num? _getCurrentSalary(TextEditingController controller) {
-    final value = controller.text;
-    num? salary = 0;
-    if (value.startsWith('SAR')) {
-      salary = num.tryParse(value.substring(4));
+  num? _getCurrentSalary() {
+    if (_registerCubit.salaryNode.hasFocus) {
+      AppFunctions.unFocusKeyboard();
+      return num.tryParse(_registerCubit.salaryController.text);
     } else {
-      salary = num.tryParse(value);
+      return num.tryParse(_registerCubit.salaryController.text.substring(4));
     }
-    return salary;
   }
 }
 

@@ -42,8 +42,8 @@ class _PasswordFieldState extends State<PasswordField> {
         },
         icon: SvgPicture.asset(
           _isHidden ? AppSvgs.hidePassword : AppSvgs.showPassword,
-          width: 24.r,
-          height: 24.r,
+          width: 18.r,
+          height: 18.r,
         ),
       ),
     );

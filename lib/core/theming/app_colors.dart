@@ -17,4 +17,5 @@ class AppColors {
   static final gray300 = '#C3C5C8'.color;
   static final gray500 = '#696F79'.color;
   static final gray800 = '#333333'.color;
+  static final primary100 = '#E9F9F1'.color;
 }
