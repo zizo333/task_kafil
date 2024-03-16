@@ -1,8 +1,10 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:task/core/enums/request_state.dart';
-import 'package:task/core/enums/user_type.dart';
+import 'package:task/core/enums/enums.dart';
+import 'package:task/core/res/app_strings.dart';
 
 part 'register_state.dart';
 part 'register_cubit.freezed.dart';
@@ -20,7 +22,16 @@ class RegisterCubit extends Cubit<RegisterState> {
   final passwordNode = FocusNode();
   final confirmPasswordController = TextEditingController();
   final confirmPasswordNode = FocusNode();
+  final aboutController = TextEditingController();
+  final aboutNode = FocusNode();
+  final salaryController =
+      TextEditingController(text: '${AppStrings.sar} 1000');
+  final salaryNode = FocusNode();
   final formKey = GlobalKey<FormState>();
+
+  void changeUserImage(File userImage) {
+    emit(state.copyWith(userImage: userImage));
+  }
 
   @override
   Future<void> close() {
@@ -34,6 +45,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     passwordNode.dispose();
     confirmPasswordController.dispose();
     confirmPasswordNode.dispose();
+    aboutController.dispose();
+    aboutNode.dispose();
+    salaryController.dispose();
+    salaryNode.dispose();
     return super.close();
   }
 }

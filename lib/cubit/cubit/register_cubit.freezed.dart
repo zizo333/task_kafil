@@ -20,6 +20,10 @@ mixin _$RegisterState {
   String get message => throw _privateConstructorUsedError;
   AutovalidateMode get autovalidateMode => throw _privateConstructorUsedError;
   UserType get userType => throw _privateConstructorUsedError;
+  File? get userImage => throw _privateConstructorUsedError;
+  DateTime? get birthDate => throw _privateConstructorUsedError;
+  Gender get gender => throw _privateConstructorUsedError;
+  bool get isFirstForm => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterStateCopyWith<RegisterState> get copyWith =>
@@ -36,7 +40,11 @@ abstract class $RegisterStateCopyWith<$Res> {
       {RequestState submitState,
       String message,
       AutovalidateMode autovalidateMode,
-      UserType userType});
+      UserType userType,
+      File? userImage,
+      DateTime? birthDate,
+      Gender gender,
+      bool isFirstForm});
 }
 
 /// @nodoc
@@ -56,6 +64,10 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
     Object? message = null,
     Object? autovalidateMode = null,
     Object? userType = null,
+    Object? userImage = freezed,
+    Object? birthDate = freezed,
+    Object? gender = null,
+    Object? isFirstForm = null,
   }) {
     return _then(_value.copyWith(
       submitState: null == submitState
@@ -74,6 +86,22 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
+      userImage: freezed == userImage
+          ? _value.userImage
+          : userImage // ignore: cast_nullable_to_non_nullable
+              as File?,
+      birthDate: freezed == birthDate
+          ? _value.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
+      isFirstForm: null == isFirstForm
+          ? _value.isFirstForm
+          : isFirstForm // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -90,7 +118,11 @@ abstract class _$$RegisterStateImplCopyWith<$Res>
       {RequestState submitState,
       String message,
       AutovalidateMode autovalidateMode,
-      UserType userType});
+      UserType userType,
+      File? userImage,
+      DateTime? birthDate,
+      Gender gender,
+      bool isFirstForm});
 }
 
 /// @nodoc
@@ -108,6 +140,10 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
     Object? message = null,
     Object? autovalidateMode = null,
     Object? userType = null,
+    Object? userImage = freezed,
+    Object? birthDate = freezed,
+    Object? gender = null,
+    Object? isFirstForm = null,
   }) {
     return _then(_$RegisterStateImpl(
       submitState: null == submitState
@@ -126,6 +162,22 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
+      userImage: freezed == userImage
+          ? _value.userImage
+          : userImage // ignore: cast_nullable_to_non_nullable
+              as File?,
+      birthDate: freezed == birthDate
+          ? _value.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
+      isFirstForm: null == isFirstForm
+          ? _value.isFirstForm
+          : isFirstForm // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -137,7 +189,11 @@ class _$RegisterStateImpl implements _RegisterState {
       {this.submitState = RequestState.none,
       this.message = '',
       this.autovalidateMode = AutovalidateMode.disabled,
-      this.userType = UserType.seller});
+      this.userType = UserType.seller,
+      this.userImage = null,
+      this.birthDate = null,
+      this.gender = Gender.male,
+      this.isFirstForm = true});
 
   @override
   @JsonKey()
@@ -151,10 +207,22 @@ class _$RegisterStateImpl implements _RegisterState {
   @override
   @JsonKey()
   final UserType userType;
+  @override
+  @JsonKey()
+  final File? userImage;
+  @override
+  @JsonKey()
+  final DateTime? birthDate;
+  @override
+  @JsonKey()
+  final Gender gender;
+  @override
+  @JsonKey()
+  final bool isFirstForm;
 
   @override
   String toString() {
-    return 'RegisterState(submitState: $submitState, message: $message, autovalidateMode: $autovalidateMode, userType: $userType)';
+    return 'RegisterState(submitState: $submitState, message: $message, autovalidateMode: $autovalidateMode, userType: $userType, userImage: $userImage, birthDate: $birthDate, gender: $gender, isFirstForm: $isFirstForm)';
   }
 
   @override
@@ -168,12 +236,19 @@ class _$RegisterStateImpl implements _RegisterState {
             (identical(other.autovalidateMode, autovalidateMode) ||
                 other.autovalidateMode == autovalidateMode) &&
             (identical(other.userType, userType) ||
-                other.userType == userType));
+                other.userType == userType) &&
+            (identical(other.userImage, userImage) ||
+                other.userImage == userImage) &&
+            (identical(other.birthDate, birthDate) ||
+                other.birthDate == birthDate) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.isFirstForm, isFirstForm) ||
+                other.isFirstForm == isFirstForm));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, submitState, message, autovalidateMode, userType);
+  int get hashCode => Object.hash(runtimeType, submitState, message,
+      autovalidateMode, userType, userImage, birthDate, gender, isFirstForm);
 
   @JsonKey(ignore: true)
   @override
@@ -187,7 +262,11 @@ abstract class _RegisterState implements RegisterState {
       {final RequestState submitState,
       final String message,
       final AutovalidateMode autovalidateMode,
-      final UserType userType}) = _$RegisterStateImpl;
+      final UserType userType,
+      final File? userImage,
+      final DateTime? birthDate,
+      final Gender gender,
+      final bool isFirstForm}) = _$RegisterStateImpl;
 
   @override
   RequestState get submitState;
@@ -197,6 +276,14 @@ abstract class _RegisterState implements RegisterState {
   AutovalidateMode get autovalidateMode;
   @override
   UserType get userType;
+  @override
+  File? get userImage;
+  @override
+  DateTime? get birthDate;
+  @override
+  Gender get gender;
+  @override
+  bool get isFirstForm;
   @override
   @JsonKey(ignore: true)
   _$$RegisterStateImplCopyWith<_$RegisterStateImpl> get copyWith =>

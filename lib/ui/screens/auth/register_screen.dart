@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:task/core/extensions/context_extension.dart';
@@ -8,9 +9,11 @@ import 'package:task/core/res/app_media.dart';
 import 'package:task/core/res/app_sizes.dart';
 import 'package:task/core/res/app_strings.dart';
 import 'package:task/core/routing/routes.dart';
+import 'package:task/cubit/cubit/register_cubit.dart';
 import 'package:task/ui/screens/auth/widgets/login_bottom_part.dart';
 import 'package:task/ui/screens/auth/widgets/login_form.dart';
-import 'package:task/ui/screens/auth/widgets/register_form.dart';
+import 'package:task/ui/screens/auth/widgets/register_form1.dart';
+import 'package:task/ui/screens/auth/widgets/register_form2.dart';
 import 'package:task/ui/widgets/custom_app_bar.dart';
 import 'package:task/ui/widgets/custom_back_button.dart';
 import 'package:task/ui/widgets/custom_button.dart';
@@ -39,13 +42,18 @@ class RegisterScreen extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SvgPicture.asset(
-                AppSvgs.loginCuate,
-                width: 225.r,
-                height: 225.r,
+              BlocBuilder<RegisterCubit, RegisterState>(
+                buildWhen: (previous, current) =>
+                    previous.isFirstForm != current.isFirstForm,
+                builder: (context, state) {
+                  return AnimatedSwitcher(
+                    duration: AppFunctions.duration300ms,
+                    child: state.isFirstForm
+                        ? const RegisterForm2()
+                        : const RegisterForm2(),
+                  );
+                },
               ),
-              20.vSpace,
-              const RegisterForm(),
               56.vSpace,
               Align(
                 alignment: AlignmentDirectional.centerEnd,

@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:task/core/enums/request_state.dart';
+import 'package:task/core/enums/enums.dart';
 
 part 'login_state.dart';
 part 'login_cubit.freezed.dart';

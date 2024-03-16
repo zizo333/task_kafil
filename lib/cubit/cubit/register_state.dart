@@ -7,5 +7,9 @@ class RegisterState with _$RegisterState {
     @Default('') String message,
     @Default(AutovalidateMode.disabled) AutovalidateMode autovalidateMode,
     @Default(UserType.seller) UserType userType,
+    @Default(null) File? userImage,
+    @Default(null) DateTime? birthDate,
+    @Default(Gender.male) Gender gender,
+    @Default(true) bool isFirstForm,
   }) = _RegisterState;
 }

@@ -1,8 +1,11 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:task/core/enums/toast_type.dart';
+import 'package:task/core/enums/enums.dart';
 import 'package:task/core/res/app_sizes.dart';
 import 'package:task/core/theming/text_styles.dart';
 import 'package:toast/toast.dart';
@@ -66,8 +69,16 @@ class AppFunctions {
     );
   }
 
+  static Future<File?> pickFile() async {
+    final result = await FilePicker.platform.pickFiles();
+
+    if (result != null) {
+      return File(result.files.single.path!);
+    }
+    return null;
+  }
+
   static Duration get duration300ms => const Duration(milliseconds: 300);
-  static Duration get duration3100ms => const Duration(milliseconds: 3100);
   static Duration get duration2m => const Duration(minutes: 2);
 }
 

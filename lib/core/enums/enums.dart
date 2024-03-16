@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:task/core/extensions/context_extension.dart';
 
+enum RequestState { none, loading, error, loaded }
+
+enum UserType { seller, buyer, both }
+
+enum Gender { male, female }
+
 enum ToastType { success, error }
 
 extension ToastTypeExtension on ToastType {

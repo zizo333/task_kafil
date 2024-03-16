@@ -4,7 +4,7 @@ const _svgsPath = 'assets/svgs';
 class AppImages {
   const AppImages._();
 
-  // static const logo = '$_imagesPath/logo.png';
+  static const userImage = '$_imagesPath/userImage.png';
 }
 
 class AppSvgs {
@@ -16,4 +16,8 @@ class AppSvgs {
   static const showPassword = '$_svgsPath/show_password.svg';
   static const check = '$_svgsPath/check.svg';
   static const downArrow = '$_svgsPath/down_arrow.svg';
+  static const add = '$_svgsPath/add.svg';
+  static const userImage = '$_svgsPath/userImage.svg';
+  static const decrement = '$_svgsPath/decrement.svg';
+  static const increment = '$_svgsPath/increment.svg';
 }

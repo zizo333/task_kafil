@@ -61,7 +61,7 @@ class CustomTextField extends StatelessWidget {
     return FieldTitle(
       title: title!,
       child: TextFormField(
-        cursorColor: Theme.of(context).colorScheme.primary,
+        cursorColor: Colors.black,
         controller: controller,
         focusNode: focusNode,
         keyboardType: keyboardType,

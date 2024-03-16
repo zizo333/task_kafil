@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task/core/enums/user_type.dart';
+import 'package:task/core/enums/enums.dart';
 import 'package:task/core/extensions/num_extenison.dart';
 import 'package:task/core/res/app_strings.dart';
-import 'package:task/core/theming/app_colors.dart';
-import 'package:task/core/theming/text_styles.dart';
 import 'package:task/cubit/cubit/register_cubit.dart';
-import 'package:task/ui/widgets/custom_check_box.dart';
 import 'package:task/ui/widgets/custom_radio_tile.dart';
-import 'package:task/ui/widgets/custom_text_button.dart';
 import 'package:task/ui/widgets/custom_text_feild.dart';
 import 'package:task/ui/widgets/field_title.dart';
 import 'package:task/ui/widgets/password_field.dart';
 
-class RegisterForm extends StatelessWidget {
-  const RegisterForm({super.key});
+class RegisterForm1 extends StatelessWidget {
+  const RegisterForm1({super.key});
 
   @override
   Widget build(BuildContext context) {
