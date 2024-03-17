@@ -29,7 +29,7 @@ class ServiceWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.cardShadow,
+            color: AppColors.containerShadow,
             blurRadius: 8.r,
           ),
         ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task/core/res/app_media.dart';
 import 'package:task/core/res/app_strings.dart';
+import 'package:task/ui/screens/countries/countries_screen.dart';
 import 'package:task/ui/screens/services/services_screen.dart';
 import 'package:task/ui/screens/who_am_i/who_am_i_screen.dart';
 
@@ -32,7 +33,7 @@ class NavItem {
       label: AppStrings.countries,
       activeIcon: AppSvgs.activeCountries,
       unactiveIcon: AppSvgs.unactiveCountries,
-      screen: const Placeholder(),
+      screen: const CountriesScreen(),
     ),
     NavItem(
       index: 2,

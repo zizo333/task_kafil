@@ -36,6 +36,12 @@ class TextStyles {
         color: color,
       );
 
+  static TextStyle font12SemiBold(Color color) => TStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeightHelper.semiBold,
+        color: color,
+      );
+
   static TextStyle font14Medium(Color color) => TStyle(
         fontSize: 14.sp,
         fontWeight: FontWeightHelper.medium,

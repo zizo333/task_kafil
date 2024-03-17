@@ -19,7 +19,7 @@ ThemeData appTheme = ThemeData(
   cardTheme: CardTheme(
     elevation: AppSizes.elevation.r,
     surfaceTintColor: Colors.white,
-    shadowColor: AppColors.cardShadow,
+    shadowColor: AppColors.containerShadow,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(8.r),
     ),

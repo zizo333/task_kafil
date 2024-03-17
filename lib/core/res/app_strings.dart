@@ -39,4 +39,6 @@ class AppStrings {
   static const countries = 'Countries';
   static const services = 'Services';
   static const popularServices = 'Popular Services';
+  static const country = 'Country';
+  static const capital = 'Capital';
 }
