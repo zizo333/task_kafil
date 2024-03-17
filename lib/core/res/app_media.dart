@@ -31,4 +31,6 @@ class AppSvgs {
   static const activeServices = '$_svgsPath/activeServices.svg';
   static const activeCountries = '$_svgsPath/activeCountries.svg';
   static const activeProfile = '$_svgsPath/activeProfile.svg';
+  static const star = '$_svgsPath/star.svg';
+  static const delete = '$_svgsPath/delete.svg';
 }

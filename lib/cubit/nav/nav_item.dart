@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task/core/res/app_media.dart';
 import 'package:task/core/res/app_strings.dart';
+import 'package:task/ui/screens/services/services_screen.dart';
 import 'package:task/ui/screens/who_am_i/who_am_i_screen.dart';
 
 class NavItem {
@@ -38,7 +39,7 @@ class NavItem {
       label: AppStrings.services,
       activeIcon: AppSvgs.activeServices,
       unactiveIcon: AppSvgs.unactiveServices,
-      screen: const Placeholder(),
+      screen: const ServicesScreen(),
     ),
   ];
 }

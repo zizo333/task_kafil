@@ -5,7 +5,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
   final routeName = settings.name;
 
   switch (routeName) {
-    case '/':
+    // case '/':
     case Routes.navScreen:
       return MaterialPageRoute(
         builder: (_) => MultiBlocProvider(
@@ -15,7 +15,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
           child: const NavScreen(),
         ),
       );
-    // case '/':
+    case '/':
     case Routes.loginScreen:
       return MaterialPageRoute(
         builder: (_) => BlocProvider<LoginCubit>(

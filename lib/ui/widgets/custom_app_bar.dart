@@ -18,29 +18,50 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.white,
-      elevation: 0,
-      shadowColor: Colors.transparent,
-      toolbarHeight: 70.h,
-      titleSpacing: 0.w,
-      titleTextStyle: TextStyles.font18SemiBold(Colors.black).copyWith(),
-      title: Row(
+    return Padding(
+      padding: EdgeInsets.only(
+        top: leading != null ? 70.h : 83.h,
+        bottom: 32.h,
+        left: leading != null
+            ? (AppSizes.hScreenPadding - 13).w
+            : AppSizes.hScreenPadding.w,
+        right: leading != null
+            ? (AppSizes.hScreenPadding - 13).w
+            : AppSizes.hScreenPadding.w,
+      ),
+      child: Row(
         children: [
           if (leading != null) leading!,
-          Text(title),
+          Text(
+            title,
+            style: TextStyles.font18SemiBold(Colors.black),
+          ),
         ],
       ),
-      surfaceTintColor: Colors.transparent,
-      // leading: leading ?? const CustomBackButton(),
     );
+    // return AppBar(
+    //   backgroundColor: Colors.white,
+    //   elevation: 0,
+    //   shadowColor: Colors.transparent,
+    //   toolbarHeight: 70.h,
+    //   titleSpacing: 0.w,
+    //   titleTextStyle: TextStyles.font18SemiBold(Colors.black).copyWith(),
+    //   title: Row(
+    //     children: [
+    //       if (leading != null) leading!,
+    //       Text(title),
+    //     ],
+    //   ),
+    //   surfaceTintColor: Colors.transparent,
+    //   // leading: leading ?? const CustomBackButton(),
+    // );
   }
 
   @override
   Size get preferredSize => Size.fromHeight(
         getValueForScreenType(
           navigatorKey.currentContext!,
-          mobile: 70.h,
+          mobile: 135.h,
           tablet: (AppSizes.appBarHeight + 20).h,
         ),
       );

@@ -49,7 +49,6 @@ class RegisterScreen extends StatelessWidget {
                 builder: (context, state) {
                   return Column(
                     children: [
-                      32.vSpace,
                       AnimatedSwitcher(
                         duration: AppFunctions.duration300ms,
                         child: state.isFirstForm

@@ -6,6 +6,24 @@ import 'package:task/core/theming/font_weight_helper.dart';
 class TextStyles {
   const TextStyles._();
 
+  static TextStyle font10Regular(Color color) => TStyle(
+        fontSize: 10.sp,
+        fontWeight: FontWeightHelper.regular,
+        color: color,
+      );
+
+  static TextStyle font11Regular(Color color) => TStyle(
+        fontSize: 11.sp,
+        fontWeight: FontWeightHelper.regular,
+        color: color,
+      );
+
+  static TextStyle font11Medium(Color color) => TStyle(
+        fontSize: 11.sp,
+        fontWeight: FontWeightHelper.medium,
+        color: color,
+      );
+
   static TextStyle font12Regular(Color color) => TStyle(
         fontSize: 12.sp,
         fontWeight: FontWeightHelper.regular,

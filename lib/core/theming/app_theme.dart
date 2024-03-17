@@ -18,8 +18,10 @@ ThemeData appTheme = ThemeData(
   ),
   cardTheme: CardTheme(
     elevation: AppSizes.elevation.r,
+    surfaceTintColor: Colors.white,
+    shadowColor: AppColors.cardShadow,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(AppSizes.radius.r),
+      borderRadius: BorderRadius.circular(8.r),
     ),
   ),
   dividerTheme: DividerThemeData(
