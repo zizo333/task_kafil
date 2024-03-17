@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/extensions/context_extension.dart';
 import 'package:task/core/helpers/app_functions.dart';
 import 'package:task/core/res/app_strings.dart';
-import 'package:task/cubit/cubit/register_cubit.dart';
+import 'package:task/cubit/register/register_cubit.dart';
 import 'package:task/ui/widgets/custom_text_feild.dart';
 
 class SalaryField extends StatefulWidget {

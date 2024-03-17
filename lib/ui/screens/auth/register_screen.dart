@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,7 +10,7 @@ import 'package:task/core/res/app_media.dart';
 import 'package:task/core/res/app_sizes.dart';
 import 'package:task/core/res/app_strings.dart';
 import 'package:task/core/routing/routes.dart';
-import 'package:task/cubit/cubit/register_cubit.dart';
+import 'package:task/cubit/register/register_cubit.dart';
 import 'package:task/ui/screens/auth/widgets/login_bottom_part.dart';
 import 'package:task/ui/screens/auth/widgets/login_form.dart';
 import 'package:task/ui/screens/auth/widgets/register_form1.dart';
@@ -46,11 +47,16 @@ class RegisterScreen extends StatelessWidget {
                 buildWhen: (previous, current) =>
                     previous.isFirstForm != current.isFirstForm,
                 builder: (context, state) {
-                  return AnimatedSwitcher(
-                    duration: AppFunctions.duration300ms,
-                    child: state.isFirstForm
-                        ? const RegisterForm2()
-                        : const RegisterForm2(),
+                  return Column(
+                    children: [
+                      32.vSpace,
+                      AnimatedSwitcher(
+                        duration: AppFunctions.duration300ms,
+                        child: state.isFirstForm
+                            ? const RegisterForm2()
+                            : const RegisterForm2(),
+                      ),
+                    ],
                   );
                 },
               ),

@@ -24,5 +24,7 @@ Future<void> _initRepos() async {
 Future<void> _initCubits() async {
   sl
     ..registerFactory(LoginCubit.new)
-    ..registerFactory(RegisterCubit.new);
+    ..registerFactory(RegisterCubit.new)
+    ..registerFactory(NavCubit.new)
+    ..registerFactory(WhoAmICubit.new);
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/enums/enums.dart';
 import 'package:task/core/extensions/num_extenison.dart';
 import 'package:task/core/res/app_strings.dart';
-import 'package:task/cubit/cubit/register_cubit.dart';
+import 'package:task/cubit/register/register_cubit.dart';
 import 'package:task/ui/widgets/custom_radio_tile.dart';
 import 'package:task/ui/widgets/custom_text_feild.dart';
 import 'package:task/ui/widgets/field_title.dart';
@@ -70,6 +71,7 @@ class RegisterForm1 extends StatelessWidget {
               16.vSpace,
               FieldTitle(
                 title: AppStrings.userType,
+                inset: 16.h,
                 child: Row(
                   children: [
                     CustomRadioTile<UserType>(

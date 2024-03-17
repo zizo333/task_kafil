@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       shadowColor: Colors.transparent,
-      toolbarHeight: 100.h,
+      toolbarHeight: 70.h,
       titleSpacing: 0.w,
       titleTextStyle: TextStyles.font18SemiBold(Colors.black).copyWith(),
       title: Row(
@@ -40,7 +40,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => Size.fromHeight(
         getValueForScreenType(
           navigatorKey.currentContext!,
-          mobile: 100.h,
+          mobile: 70.h,
           tablet: (AppSizes.appBarHeight + 20).h,
         ),
       );

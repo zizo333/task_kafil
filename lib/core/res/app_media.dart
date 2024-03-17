@@ -25,4 +25,10 @@ class AppSvgs {
   static const facebook = '$_svgsPath/facebook.svg';
   static const twitter = '$_svgsPath/twitter.svg';
   static const close = '$_svgsPath/close.svg';
+  static const unactiveServices = '$_svgsPath/unactiveServices.svg';
+  static const unactiveCountries = '$_svgsPath/unactiveCountries.svg';
+  static const unactiveProfile = '$_svgsPath/unactiveProfile.svg';
+  static const activeServices = '$_svgsPath/activeServices.svg';
+  static const activeCountries = '$_svgsPath/activeCountries.svg';
+  static const activeProfile = '$_svgsPath/activeProfile.svg';
 }

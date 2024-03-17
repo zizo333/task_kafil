@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,19 +7,13 @@ import 'package:task/core/extensions/num_extenison.dart';
 import 'package:task/core/helpers/app_converter.dart';
 import 'package:task/core/res/app_media.dart';
 import 'package:task/core/res/app_strings.dart';
-import 'package:task/core/theming/app_colors.dart';
-import 'package:task/core/theming/text_styles.dart';
-import 'package:task/cubit/cubit/register_cubit.dart';
-import 'package:task/ui/screens/auth/widgets/gender_widget.dart';
+import 'package:task/cubit/register/register_cubit.dart';
+import 'package:task/ui/widgets/gender_widget.dart';
 import 'package:task/ui/screens/auth/widgets/salary_field.dart';
-import 'package:task/ui/screens/auth/widgets/skills_widget.dart';
-import 'package:task/ui/screens/auth/widgets/social_media_widget.dart';
-import 'package:task/ui/screens/auth/widgets/user_image.dart';
-import 'package:task/ui/widgets/custom_check_box.dart';
-import 'package:task/ui/widgets/custom_radio_tile.dart';
+import 'package:task/ui/widgets/skills_widget.dart';
+import 'package:task/ui/widgets/social_media_widget.dart';
+import 'package:task/ui/widgets/user_image.dart';
 import 'package:task/ui/widgets/custom_text_feild.dart';
-import 'package:task/ui/widgets/field_title.dart';
-import 'package:task/ui/widgets/password_field.dart';
 
 class RegisterForm2 extends StatelessWidget {
   const RegisterForm2({super.key});
@@ -79,12 +71,37 @@ class RegisterForm2 extends StatelessWidget {
           },
         ),
         16.vSpace,
-        const Genderwidget(),
+        BlocBuilder<RegisterCubit, RegisterState>(
+          buildWhen: (previous, current) => previous.gender != current.gender,
+          builder: (context, state) {
+            return Genderwidget(
+              gender: state.gender,
+              onTap: registerCubit.selectGender,
+            );
+          },
+        ),
         16.vSpace,
-        const SkillsWidget(),
+        BlocBuilder<RegisterCubit, RegisterState>(
+          buildWhen: (previous, current) => previous.skills != current.skills,
+          builder: (context, state) {
+            return SkillsWidget(
+              skills: state.skills,
+              onAddSkill: context.read<RegisterCubit>().addSkill,
+              onDeleteSkill: context.read<RegisterCubit>().deleteSkill,
+            );
+          },
+        ),
         16.vSpace,
-        const SocialMediaWidget(),
-        16.vSpace,
+        BlocBuilder<RegisterCubit, RegisterState>(
+          buildWhen: (previous, current) =>
+              previous.socialMedia != current.socialMedia,
+          builder: (context, state) {
+            return SocialMediaWidget(
+              isSelected: registerCubit.isSelected,
+              onChanged: registerCubit.selectSocialMedia,
+            );
+          },
+        ),
       ],
     );
   }

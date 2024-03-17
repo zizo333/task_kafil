@@ -35,4 +35,8 @@ class AppStrings {
   static const seller = 'Seller';
   static const buyer = 'Buyer';
   static const both = 'Both';
+  static const whoAmI = 'Who Am I';
+  static const countries = 'Countries';
+  static const services = 'Services';
+  static const popularServices = 'Popular Services';
 }

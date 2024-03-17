@@ -6,6 +6,16 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
   switch (routeName) {
     case '/':
+    case Routes.navScreen:
+      return MaterialPageRoute(
+        builder: (_) => MultiBlocProvider(
+          providers: [
+            BlocProvider<WhoAmICubit>(create: (_) => sl<WhoAmICubit>()),
+          ],
+          child: const NavScreen(),
+        ),
+      );
+    // case '/':
     case Routes.loginScreen:
       return MaterialPageRoute(
         builder: (_) => BlocProvider<LoginCubit>(
@@ -20,6 +30,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
           child: const RegisterScreen(),
         ),
       );
+
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(

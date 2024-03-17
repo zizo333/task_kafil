@@ -8,7 +8,7 @@ class AppColors {
   static final background = '#FFFFFF'.color;
   static final appBarBackground = '#FFFFFF'.color;
   static final black = '#000000'.color;
-  static final shadow = '#DDDDDD'.color;
+  static final shadow = '#DEDEDE'.color;
   static final error = '#AF1B21'.color;
   static final border = '#B7B7B7'.color;
   static final hint = '#B7B7B7'.color;
