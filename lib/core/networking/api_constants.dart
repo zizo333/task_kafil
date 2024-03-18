@@ -1,23 +1,24 @@
 class ApiConstants {
   const ApiConstants._();
-}
 
-class ApiErrors {
-  const ApiErrors._();
+  static const appDependencies = '/api/test/dependencies';
 
-  static const badRequestError = 'badRequestError';
-  static const noContent = 'noContent';
-  static const forbiddenError = 'forbiddenError';
-  static const unauthorizedError = 'unauthorizedError';
-  static const notFoundError = 'notFoundError';
-  static const conflictError = 'conflictError';
-  static const internalServerError = 'internalServerError';
-  static const unknownError = 'unknownError';
-  static const timeoutError = 'timeoutError';
-  static const defaultError = 'defaultError';
-  static const cacheError = 'cacheError';
-  static const noInternetError = 'noInternetError';
-  static const loadingMessage = 'loading_message';
-  static const retryAgainMessage = 'retry_again_message';
-  static const ok = 'Ok';
+  static const String applicationJson = 'application/json';
+  static const String accept = 'Accept';
+  static const String contentType = 'Content-Type';
+  static const String acceptLanguage = 'Accept-Language';
+  static Map<String, String> authorization(String token) =>
+      {'Authorization': 'Bearer $token'};
+
+  static Map<String, String> headers([
+    Map<String, String>? additionalHeaders,
+  ]) =>
+      {
+        ...{
+          accept: applicationJson,
+          contentType: applicationJson,
+          acceptLanguage: 'en',
+        },
+        ...additionalHeaders ?? {},
+      };
 }

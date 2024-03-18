@@ -3,14 +3,16 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:task/core/di/di_imports.dart';
 import 'package:task/core/enums/enums.dart';
 import 'package:task/core/res/app_strings.dart';
+import 'package:task/data/models/user_type_model.dart';
 
 part 'register_state.dart';
 part 'register_cubit.freezed.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit() : super(const RegisterState());
+  RegisterCubit() : super(RegisterState.init());
 
   final firstNameController = TextEditingController();
   final firstNameNode = FocusNode();
@@ -29,6 +31,10 @@ class RegisterCubit extends Cubit<RegisterState> {
   final birthDateController = TextEditingController();
   final salaryNode = FocusNode();
   final formKey = GlobalKey<FormState>();
+
+  void changeStepNumber(StepNumber stepNumber) {
+    emit(state.copyWith(stepNumber: stepNumber));
+  }
 
   void changeUserImage(File userImage) {
     emit(state.copyWith(userImage: userImage));

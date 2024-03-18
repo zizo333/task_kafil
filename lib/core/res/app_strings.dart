@@ -1,6 +1,9 @@
 class AppStrings {
   const AppStrings._();
 
+  static const noInternetError = 'Please check your internet connection';
+  static const unknownError = 'Something went wrong, try again later';
+
   static const appName = 'Task';
   static const accountLogin = 'Account Login';
   static const emailAddress = 'Email Address';

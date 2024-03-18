@@ -10,7 +10,8 @@ class AppColors {
   static final black = '#000000'.color;
   static final shadow = '#DEDEDE'.color;
   static final containerShadow = '#2020201A'.color.withOpacity(0.1);
-  static final error = '#AF1B21'.color;
+  static final error = '#FFF0ED'.color;
+  static final error300 = '#F56342'.color;
   static final border = '#B7B7B7'.color;
   static final hint = '#B7B7B7'.color;
   static final divider = '#707070'.color;

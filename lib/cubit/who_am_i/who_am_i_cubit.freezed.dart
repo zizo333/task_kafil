@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$WhoAmIState {
-  UserType get userType => throw _privateConstructorUsedError;
+  UserTypeModel? get userType => throw _privateConstructorUsedError;
   File? get userImage => throw _privateConstructorUsedError;
   DateTime? get birthDate => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $WhoAmIStateCopyWith<$Res> {
       _$WhoAmIStateCopyWithImpl<$Res, WhoAmIState>;
   @useResult
   $Res call(
-      {UserType userType,
+      {UserTypeModel? userType,
       File? userImage,
       DateTime? birthDate,
       Gender gender,
@@ -58,7 +58,7 @@ class _$WhoAmIStateCopyWithImpl<$Res, $Val extends WhoAmIState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userType = null,
+    Object? userType = freezed,
     Object? userImage = freezed,
     Object? birthDate = freezed,
     Object? gender = null,
@@ -67,10 +67,10 @@ class _$WhoAmIStateCopyWithImpl<$Res, $Val extends WhoAmIState>
     Object? skills = null,
   }) {
     return _then(_value.copyWith(
-      userType: null == userType
+      userType: freezed == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
+              as UserTypeModel?,
       userImage: freezed == userImage
           ? _value.userImage
           : userImage // ignore: cast_nullable_to_non_nullable
@@ -108,7 +108,7 @@ abstract class _$$WhoAmIStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {UserType userType,
+      {UserTypeModel? userType,
       File? userImage,
       DateTime? birthDate,
       Gender gender,
@@ -128,7 +128,7 @@ class __$$WhoAmIStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userType = null,
+    Object? userType = freezed,
     Object? userImage = freezed,
     Object? birthDate = freezed,
     Object? gender = null,
@@ -137,10 +137,10 @@ class __$$WhoAmIStateImplCopyWithImpl<$Res>
     Object? skills = null,
   }) {
     return _then(_$WhoAmIStateImpl(
-      userType: null == userType
+      userType: freezed == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
+              as UserTypeModel?,
       userImage: freezed == userImage
           ? _value.userImage
           : userImage // ignore: cast_nullable_to_non_nullable
@@ -173,7 +173,7 @@ class __$$WhoAmIStateImplCopyWithImpl<$Res>
 
 class _$WhoAmIStateImpl implements _WhoAmIState {
   const _$WhoAmIStateImpl(
-      {this.userType = UserType.seller,
+      {this.userType,
       this.userImage = null,
       this.birthDate = null,
       this.gender = Gender.male,
@@ -187,8 +187,7 @@ class _$WhoAmIStateImpl implements _WhoAmIState {
         _skills = skills;
 
   @override
-  @JsonKey()
-  final UserType userType;
+  final UserTypeModel? userType;
   @override
   @JsonKey()
   final File? userImage;
@@ -263,7 +262,7 @@ class _$WhoAmIStateImpl implements _WhoAmIState {
 
 abstract class _WhoAmIState implements WhoAmIState {
   const factory _WhoAmIState(
-      {final UserType userType,
+      {final UserTypeModel? userType,
       final File? userImage,
       final DateTime? birthDate,
       final Gender gender,
@@ -272,7 +271,7 @@ abstract class _WhoAmIState implements WhoAmIState {
       final List<String> skills}) = _$WhoAmIStateImpl;
 
   @override
-  UserType get userType;
+  UserTypeModel? get userType;
   @override
   File? get userImage;
   @override

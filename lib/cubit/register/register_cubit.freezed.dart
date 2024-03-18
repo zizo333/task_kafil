@@ -19,11 +19,11 @@ mixin _$RegisterState {
   RequestState get submitState => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
   AutovalidateMode get autovalidateMode => throw _privateConstructorUsedError;
-  UserType get userType => throw _privateConstructorUsedError;
+  UserTypeModel? get userType => throw _privateConstructorUsedError;
   File? get userImage => throw _privateConstructorUsedError;
   DateTime? get birthDate => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
-  bool get isFirstForm => throw _privateConstructorUsedError;
+  StepNumber get stepNumber => throw _privateConstructorUsedError;
   List<SocialMedia> get socialMedia => throw _privateConstructorUsedError;
   List<String> get skills => throw _privateConstructorUsedError;
 
@@ -42,11 +42,11 @@ abstract class $RegisterStateCopyWith<$Res> {
       {RequestState submitState,
       String message,
       AutovalidateMode autovalidateMode,
-      UserType userType,
+      UserTypeModel? userType,
       File? userImage,
       DateTime? birthDate,
       Gender gender,
-      bool isFirstForm,
+      StepNumber stepNumber,
       List<SocialMedia> socialMedia,
       List<String> skills});
 }
@@ -67,11 +67,11 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
     Object? submitState = null,
     Object? message = null,
     Object? autovalidateMode = null,
-    Object? userType = null,
+    Object? userType = freezed,
     Object? userImage = freezed,
     Object? birthDate = freezed,
     Object? gender = null,
-    Object? isFirstForm = null,
+    Object? stepNumber = null,
     Object? socialMedia = null,
     Object? skills = null,
   }) {
@@ -88,10 +88,10 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
               as AutovalidateMode,
-      userType: null == userType
+      userType: freezed == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
+              as UserTypeModel?,
       userImage: freezed == userImage
           ? _value.userImage
           : userImage // ignore: cast_nullable_to_non_nullable
@@ -104,10 +104,10 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender,
-      isFirstForm: null == isFirstForm
-          ? _value.isFirstForm
-          : isFirstForm // ignore: cast_nullable_to_non_nullable
-              as bool,
+      stepNumber: null == stepNumber
+          ? _value.stepNumber
+          : stepNumber // ignore: cast_nullable_to_non_nullable
+              as StepNumber,
       socialMedia: null == socialMedia
           ? _value.socialMedia
           : socialMedia // ignore: cast_nullable_to_non_nullable
@@ -132,11 +132,11 @@ abstract class _$$RegisterStateImplCopyWith<$Res>
       {RequestState submitState,
       String message,
       AutovalidateMode autovalidateMode,
-      UserType userType,
+      UserTypeModel? userType,
       File? userImage,
       DateTime? birthDate,
       Gender gender,
-      bool isFirstForm,
+      StepNumber stepNumber,
       List<SocialMedia> socialMedia,
       List<String> skills});
 }
@@ -155,11 +155,11 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
     Object? submitState = null,
     Object? message = null,
     Object? autovalidateMode = null,
-    Object? userType = null,
+    Object? userType = freezed,
     Object? userImage = freezed,
     Object? birthDate = freezed,
     Object? gender = null,
-    Object? isFirstForm = null,
+    Object? stepNumber = null,
     Object? socialMedia = null,
     Object? skills = null,
   }) {
@@ -176,10 +176,10 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
               as AutovalidateMode,
-      userType: null == userType
+      userType: freezed == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
+              as UserTypeModel?,
       userImage: freezed == userImage
           ? _value.userImage
           : userImage // ignore: cast_nullable_to_non_nullable
@@ -192,10 +192,10 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender,
-      isFirstForm: null == isFirstForm
-          ? _value.isFirstForm
-          : isFirstForm // ignore: cast_nullable_to_non_nullable
-              as bool,
+      stepNumber: null == stepNumber
+          ? _value.stepNumber
+          : stepNumber // ignore: cast_nullable_to_non_nullable
+              as StepNumber,
       socialMedia: null == socialMedia
           ? _value._socialMedia
           : socialMedia // ignore: cast_nullable_to_non_nullable
@@ -215,11 +215,11 @@ class _$RegisterStateImpl implements _RegisterState {
       {this.submitState = RequestState.none,
       this.message = '',
       this.autovalidateMode = AutovalidateMode.disabled,
-      this.userType = UserType.seller,
+      this.userType,
       this.userImage = null,
       this.birthDate = null,
       this.gender = Gender.male,
-      this.isFirstForm = true,
+      this.stepNumber = StepNumber.step1,
       final List<SocialMedia> socialMedia = const [
         SocialMedia.facebook,
         SocialMedia.twitter
@@ -238,8 +238,7 @@ class _$RegisterStateImpl implements _RegisterState {
   @JsonKey()
   final AutovalidateMode autovalidateMode;
   @override
-  @JsonKey()
-  final UserType userType;
+  final UserTypeModel? userType;
   @override
   @JsonKey()
   final File? userImage;
@@ -251,7 +250,7 @@ class _$RegisterStateImpl implements _RegisterState {
   final Gender gender;
   @override
   @JsonKey()
-  final bool isFirstForm;
+  final StepNumber stepNumber;
   final List<SocialMedia> _socialMedia;
   @override
   @JsonKey()
@@ -272,7 +271,7 @@ class _$RegisterStateImpl implements _RegisterState {
 
   @override
   String toString() {
-    return 'RegisterState(submitState: $submitState, message: $message, autovalidateMode: $autovalidateMode, userType: $userType, userImage: $userImage, birthDate: $birthDate, gender: $gender, isFirstForm: $isFirstForm, socialMedia: $socialMedia, skills: $skills)';
+    return 'RegisterState(submitState: $submitState, message: $message, autovalidateMode: $autovalidateMode, userType: $userType, userImage: $userImage, birthDate: $birthDate, gender: $gender, stepNumber: $stepNumber, socialMedia: $socialMedia, skills: $skills)';
   }
 
   @override
@@ -292,8 +291,8 @@ class _$RegisterStateImpl implements _RegisterState {
             (identical(other.birthDate, birthDate) ||
                 other.birthDate == birthDate) &&
             (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.isFirstForm, isFirstForm) ||
-                other.isFirstForm == isFirstForm) &&
+            (identical(other.stepNumber, stepNumber) ||
+                other.stepNumber == stepNumber) &&
             const DeepCollectionEquality()
                 .equals(other._socialMedia, _socialMedia) &&
             const DeepCollectionEquality().equals(other._skills, _skills));
@@ -309,7 +308,7 @@ class _$RegisterStateImpl implements _RegisterState {
       userImage,
       birthDate,
       gender,
-      isFirstForm,
+      stepNumber,
       const DeepCollectionEquality().hash(_socialMedia),
       const DeepCollectionEquality().hash(_skills));
 
@@ -325,11 +324,11 @@ abstract class _RegisterState implements RegisterState {
       {final RequestState submitState,
       final String message,
       final AutovalidateMode autovalidateMode,
-      final UserType userType,
+      final UserTypeModel? userType,
       final File? userImage,
       final DateTime? birthDate,
       final Gender gender,
-      final bool isFirstForm,
+      final StepNumber stepNumber,
       final List<SocialMedia> socialMedia,
       final List<String> skills}) = _$RegisterStateImpl;
 
@@ -340,7 +339,7 @@ abstract class _RegisterState implements RegisterState {
   @override
   AutovalidateMode get autovalidateMode;
   @override
-  UserType get userType;
+  UserTypeModel? get userType;
   @override
   File? get userImage;
   @override
@@ -348,7 +347,7 @@ abstract class _RegisterState implements RegisterState {
   @override
   Gender get gender;
   @override
-  bool get isFirstForm;
+  StepNumber get stepNumber;
   @override
   List<SocialMedia> get socialMedia;
   @override

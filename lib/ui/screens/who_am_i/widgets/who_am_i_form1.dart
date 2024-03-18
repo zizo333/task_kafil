@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task/core/di/di_imports.dart';
 import 'package:task/core/enums/enums.dart';
 import 'package:task/core/extensions/num_extenison.dart';
 import 'package:task/core/res/app_strings.dart';
 import 'package:task/cubit/who_am_i/who_am_i_cubit.dart';
+import 'package:task/data/models/user_type_model.dart';
 import 'package:task/ui/widgets/custom_radio_tile.dart';
 import 'package:task/ui/widgets/custom_text_feild.dart';
 import 'package:task/ui/widgets/field_title.dart';
@@ -63,28 +65,17 @@ class WhoAmIForm1 extends StatelessWidget {
               title: AppStrings.userType,
               inset: 16.h,
               child: Row(
-                children: [
-                  CustomRadioTile<UserType>(
-                    title: AppStrings.seller,
-                    value: state.userType,
-                    groupValue: UserType.seller,
-                    onChanged: (type) {},
-                  ),
-                  24.hSpace,
-                  CustomRadioTile<UserType>(
-                    title: AppStrings.buyer,
-                    value: state.userType,
-                    groupValue: UserType.buyer,
-                    onChanged: (type) {},
-                  ),
-                  24.hSpace,
-                  CustomRadioTile<UserType>(
-                    title: AppStrings.both,
-                    value: state.userType,
-                    groupValue: UserType.both,
-                    onChanged: (type) {},
-                  ),
-                ],
+                children: sl<UserTypes>()
+                    .userTpes
+                    .map(
+                      (userType) => CustomRadioTile<UserTypeModel>(
+                        title: userType.label,
+                        value: userType,
+                        groupValue: state.userType,
+                        onChanged: (type) {},
+                      ),
+                    )
+                    .toList(),
               ),
             );
           },

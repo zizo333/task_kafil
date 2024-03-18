@@ -47,7 +47,7 @@ class FetchLoading extends StatelessWidget {
           indicatorType: Indicator.ballSpinFadeLoader,
           colors: [
             context.colorScheme.primary,
-            context.colorScheme.secondary,
+            context.colorScheme.primary,
           ],
         ),
       ),
@@ -75,7 +75,7 @@ class InlineLoading extends StatelessWidget {
         child: LoadingIndicator(
           indicatorType: Indicator.circleStrokeSpin,
           colors: [
-            color ?? context.colorScheme.secondary,
+            color ?? context.colorScheme.primary,
           ],
         ),
       ),

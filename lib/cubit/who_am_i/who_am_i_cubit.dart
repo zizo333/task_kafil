@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:task/core/enums/enums.dart';
+import 'package:task/data/models/user_type_model.dart';
 
 part 'who_am_i_state.dart';
 part 'who_am_i_cubit.freezed.dart';

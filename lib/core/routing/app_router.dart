@@ -5,17 +5,15 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
   final routeName = settings.name;
 
   switch (routeName) {
-    case '/':
-    case Routes.navScreen:
+    // case '/':
+    case Routes.splashScreen:
       return MaterialPageRoute(
-        builder: (_) => MultiBlocProvider(
-          providers: [
-            BlocProvider<WhoAmICubit>(create: (_) => sl<WhoAmICubit>()),
-          ],
-          child: const NavScreen(),
+        builder: (_) => BlocProvider<SplashCubit>(
+          create: (_) => sl<SplashCubit>()..fetchUserTypes(),
+          child: const SplashScreen(),
         ),
       );
-    // case '/':
+    case '/':
     case Routes.loginScreen:
       return MaterialPageRoute(
         builder: (_) => BlocProvider<LoginCubit>(
@@ -28,6 +26,15 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (_) => BlocProvider<RegisterCubit>(
           create: (context) => sl<RegisterCubit>(),
           child: const RegisterScreen(),
+        ),
+      );
+    case Routes.navScreen:
+      return MaterialPageRoute(
+        builder: (_) => MultiBlocProvider(
+          providers: [
+            BlocProvider<WhoAmICubit>(create: (_) => sl<WhoAmICubit>()),
+          ],
+          child: const NavScreen(),
         ),
       );
 

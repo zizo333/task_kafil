@@ -35,4 +35,6 @@ class AppSvgs {
   static const delete = '$_svgsPath/delete.svg';
   static const first = '$_svgsPath/first.svg';
   static const last = '$_svgsPath/last.svg';
+  static const logo = '$_svgsPath/logo.svg';
+  static const info = '$_svgsPath/info.svg';
 }

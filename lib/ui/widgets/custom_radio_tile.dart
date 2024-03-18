@@ -17,7 +17,7 @@ class CustomRadioTile<T> extends StatelessWidget {
 
   final String title;
   final T? value;
-  final T groupValue;
+  final T? groupValue;
   final void Function(T value) onChanged;
 
   @override

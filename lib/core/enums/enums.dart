@@ -5,8 +5,6 @@ import 'package:task/core/res/app_strings.dart';
 
 enum RequestState { none, loading, error, loaded }
 
-enum UserType { seller, buyer, both }
-
 enum Gender { male, female }
 
 enum ToastType { success, error }
@@ -34,4 +32,13 @@ enum SocialMedia {
 
   final String icon;
   final String name;
+}
+
+enum StepNumber {
+  step1(1),
+  step2(2);
+
+  const StepNumber(this.number);
+
+  final int number;
 }
